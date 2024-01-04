@@ -83,7 +83,7 @@
         letters[letterPosition-1] = '<span style="color: red">' + letters[letterPosition-1] + '</span>';
         document.querySelector(".words").innerHTML = letters.join("")
     }else{
-        letters[letterPosition] = '<span style="background-color: blue">' + letters[letterPosition] + '</span>';
+        letters[letterPosition-1] = '<span style="background-color: blue">' + letters[letterPosition-1] + '</span>';
         document.querySelector(".words").innerHTML = letters.join("")
     } 
 };
