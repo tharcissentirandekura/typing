@@ -1,0 +1,57 @@
+body{
+    background-color: rgb(12, 12, 43);
+    color: white;
+    font-size: 30px;
+}
+#output{
+    display:none;
+}
+.typing-section{
+    display: grid;
+    justify-content: center;
+}
+
+.sentences-section{
+    background-color: rgb(90, 130, 117);
+    height: auto;
+    width: 90%;
+    border-radius: 5px;
+    margin: 10px;
+    margin-left: 10px;
+}
+.words{
+    margin: 10px;
+    letter-spacing: 4px;
+}
+
+.typing-section, .keyboard-section{
+    padding: 5%;
+}
+
+.keyboard-section{
+    display: grid;
+    justify-content: center;
+   
+}
+.keyboard-center{
+    position: relative;
+    width: 100%;
+    background-color: antiquewhite;
+    color: black;
+    border-radius: 5px;
+    right: 4%;
+}
+
+.keyboard-letters{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 30px;
+    letter-spacing: 10px;
+}
+.letter{
+    position: relative;
+    display:grid;
+    /* background-color: rgb(102, 255, 0); */
+    margin: 10px;
+    padding: 3px;
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+    <title>Typing</title>
+
+</head>
+<body>
+    <div id="output"></div>
+    <section "words-keyboard">
+        <section class="typing-section">
+
+            <div class="sentences-section">
+                <div class="letters-section">
+                    <p class="words">burundi is the great country in the world</p>
+                </div>
+            </div>
+        </section>
+        <section class="keyboard-section">
+            <div class="keyboard-center">
+                <div class="keyboard-letters">
+                    <div class="letter">a</div>
+                    <div class="letter">b</div>
+                    <div class="letter">c</div>
+                    <div class="letter">d</div>
+                    <div class="letter">e</div>
+                    <div class="letter">f</div>
+                    <div class="letter">g</div>
+                    <div class="letter">h</div>
+                    <div class="letter">i</div>
+                    <div class="letter">j</div>
+                    <div class="letter">k</div>
+                    <div class="letter">l</div>
+                    <div class="letter">m</div>
+                    <div class="letter">n</div>
+                    <div class="letter">o</div>
+                    <div class="letter">p</div>
+                    <div class="letter">q</div>
+                    <div class="letter">l</div>
+                    <div class="letter">m</div>
+                    <div class="letter">n</div>
+    
+                </div>
+            </div>
+        
+        </section>
+
+    </section>
+
+    
+</body>
+<script>
+    let outputElement = document.getElementById("output");
+
+    let letters = document.querySelector(".words").textContent.split('');
+    let len = letters.length;
+
+
+    document.onkeydown = (event) => {
+    let pressedKey = event.key;    
+    if(pressedKey === "Backspace"){
+        let outputText = outputElement.textContent;
+        //work on this part to improve the deleting
+        outputElement.textContent = outputText.slice(0, outputText.length-1);
+        letters[outputElement.textContent.length-2] = '<span style="color: white">' + letters[outputElement.textContent.length-2] + '</span>';
+        console.log("deleting is :" + outputText + " " + outputText.length)
+        // console.log("length is :" + outputElement.textContent.length)
+    }else{
+        outputElement.textContent += pressedKey;
+        // console.log("length is :" + outputElement.textContent.length)
+    }
+
+    let lastLetter = outputElement.textContent.slice(outputElement.textContent.length - 1)
+    let letterPosition = outputElement.textContent.length
+    let currentLetter = letters[letterPosition-1]
+
+    if(letterPosition <= len){
+        if (currentLetter === lastLetter){
+        // change the color
+        letters[letterPosition-1] = '<span style="color: red">' + letters[letterPosition-1] + '</span>';
+        document.querySelector(".words").innerHTML = letters.join("")
+    }else{
+        letters[letterPosition] = '<span style="background-color: blue">' + letters[letterPosition] + '</span>';
+        document.querySelector(".words").innerHTML = letters.join("")
+    } 
+};
+}
+
+</script>
+</html>

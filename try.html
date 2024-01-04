@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Keyboard Input Display</title>
+</head>
+<body>
+  <div id="output">|</div>
+
+  <script>
+    let outputElement = document.getElementById("output");
+    document.onkeydown = (event) => {
+    let pressedKey = event.key;
+    
+    if(pressedKey === "Backspace"){
+        let outputText = outputElement.textContent;
+        outputElement.textContent = outputText.slice(0, -1);
+    }else{
+        outputElement.textContent += pressedKey;
+    }
+};
+
+  </script>
+
+</body>
+</html>
