@@ -9,8 +9,10 @@
 
 </head>
 <body>
+    <div class="typed">|</div>
+    <h class="accuracy"></h>
     <div id="output"></div>
-    <section "words-keyboard">
+    <section class="words-keyboard">
         <section class="typing-section">
 
             <div class="sentences-section">
@@ -39,10 +41,10 @@
                     <div class="letter">o</div>
                     <div class="letter">p</div>
                     <div class="letter">q</div>
-                    <div class="letter">l</div>
-                    <div class="letter">m</div>
-                    <div class="letter">n</div>
-    
+                    <div class="letter">r</div>
+                    <div class="letter">s</div>
+                    <div class="letter">t</div>
+         
                 </div>
             </div>
         
@@ -53,41 +55,53 @@
     
 </body>
 <script>
+
+    let typed = document.querySelector(".typed");
+    let accuracy = document.querySelector(".accuracy");
+    let score = 0;
+    let typedLength = typed.textContent.length;
+
     let outputElement = document.getElementById("output");
 
     let letters = document.querySelector(".words").textContent.split('');
     let len = letters.length;
 
-
     document.onkeydown = (event) => {
-    let pressedKey = event.key;    
-    if(pressedKey === "Backspace"){
+    let pressedKey = event.key;
+    
+    typed.textContent += pressedKey;
+    console.log("text is :" + typed.textContent);
+
+    if(pressedKey == "Backspace"){
         let outputText = outputElement.textContent;
         //work on this part to improve the deleting
-        outputElement.textContent = outputText.slice(0, outputText.length-1);
-        letters[outputElement.textContent.length-2] = '<span style="color: white">' + letters[outputElement.textContent.length-2] + '</span>';
-        console.log("deleting is :" + outputText + " " + outputText.length)
-        // console.log("length is :" + outputElement.textContent.length)
+
+        outputElement.textContent = outputText.slice(0, outputText.length - 1);
+        typed.textContent = outputText.slice(0, outputText.length - 1);
+
+        console.log("Letter to delete is :" + outputText + " length is : " + outputText.length);
+
     }else{
         outputElement.textContent += pressedKey;
-        // console.log("length is :" + outputElement.textContent.length)
     }
 
-    let lastLetter = outputElement.textContent.slice(outputElement.textContent.length - 1)
-    let letterPosition = outputElement.textContent.length
-    let currentLetter = letters[letterPosition-1]
+    let lastLetter = outputElement.textContent.slice(outputElement.textContent.length - 1);
+    let letterPosition = outputElement.textContent.length;
+    let currentLetter = letters[letterPosition-1];
 
     if(letterPosition <= len){
         if (currentLetter === lastLetter){
+            score += 1;
         // change the color
-        letters[letterPosition-1] = '<span style="color: red">' + letters[letterPosition-1] + '</span>';
-        document.querySelector(".words").innerHTML = letters.join("")
-    }else{
-        letters[letterPosition-1] = '<span style="background-color: blue">' + letters[letterPosition-1] + '</span>';
-        document.querySelector(".words").innerHTML = letters.join("")
+            letters[letterPosition-1] = '<span style="color: red">' + letters[letterPosition-1] + '</span>';//change color
+        }else{
+            letters[letterPosition-1] = '<span style="background-color: blue">' + letters[letterPosition-1] + '</span>';  //change the background of the letter at that position    
     } 
-};
+    document.querySelector(".words").innerHTML = letters.join(""); // set the letter joined
+    accuracy.textContent =score; //set the score of the correct typed letter
+    };
 }
+
 
 </script>
 </html>
