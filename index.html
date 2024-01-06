@@ -41,10 +41,10 @@
                     <div class="letter">o</div>
                     <div class="letter">p</div>
                     <div class="letter">q</div>
-                    <div class="letter">r</div>
-                    <div class="letter">s</div>
-                    <div class="letter">t</div>
-         
+                    <div class="letter">l</div>
+                    <div class="letter">m</div>
+                    <div class="letter">n</div>
+    
                 </div>
             </div>
         
@@ -79,12 +79,10 @@
     if(pressedKey == "Backspace"){
         let outputText = outputElement.textContent;
         //work on this part to improve the deleting
-
-        outputElement.textContent = outputText.slice(0, outputText.length - 1);
-        typed.textContent = outputText.slice(0, outputText.length - 1);
-
-        console.log("Letter to delete is :" + outputText + " length is : " + outputText.length);
-
+        outputElement.textContent = outputText.slice(0, outputText.length-1);
+        letters[outputElement.textContent.length-2] = '<span style="color: white">' + letters[outputElement.textContent.length-2] + '</span>';
+        console.log("deleting is :" + outputText + " " + outputText.length)
+        // console.log("length is :" + outputElement.textContent.length)
     }else{
         outputElement.textContent += pressedKey;
     }
@@ -95,11 +93,12 @@
 
     if(letterPosition <= len){
         if (currentLetter === lastLetter){
-            score += 1;
         // change the color
-            letters[letterPosition-1] = '<span style="color: red">' + letters[letterPosition-1] + '</span>';//change color
-        }else{
-            letters[letterPosition-1] = '<span style="background-color: blue">' + letters[letterPosition-1] + '</span>';  //change the background of the letter at that position    
+        letters[letterPosition-1] = '<span style="color: red">' + letters[letterPosition-1] + '</span>';
+        document.querySelector(".words").innerHTML = letters.join("")
+    }else{
+        letters[letterPosition-1] = '<span style="background-color: blue">' + letters[letterPosition-1] + '</span>';
+        document.querySelector(".words").innerHTML = letters.join("")
     } 
     document.querySelector(".words").innerHTML = letters.join(""); // set the letter joined
     accuracy.textContent =score; //set the score of the correct typed letter

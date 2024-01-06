@@ -1,25 +1,125 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Keyboard Input Display</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-  <div id="output">|</div>
+  <style>
+    body {
+  margin: 0;
+  /* padding: 0; */
+  font-size: 20px;
+  background-color: #080000;
+}
 
-  <script>
-    let outputElement = document.getElementById("output");
-    document.onkeydown = (event) => {
-    let pressedKey = event.key;
-    
-    if(pressedKey === "Backspace"){
-        let outputText = outputElement.textContent;
-        outputElement.textContent = outputText.slice(0, -1);
-    }else{
-        outputElement.textContent += pressedKey;
-    }
-};
+header {
+  position: fixed;
 
-  </script>
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f2f2f2;
+  z-index: 999;
+}
 
+.navbar {
+  display: flex;
+  justify-content: center;
+  /* padding: 1px; */
+}
+
+.navbar ul {
+  list-style-type: none;
+}
+
+.navbar ul li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 20px;
+}
+
+.container {
+  position: relative;
+  color: rgba(255, 255, 255, 0.609);
+  top: 6em;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  margin: 5px;
+  font-size: 24px;
+  /* height: 100px; */
+}
+
+.left-section {
+  flex: 1;
+  background-color:#02010a;
+  border-radius: 2px;
+  border-style: solid;
+  border-color: rgb(117, 118, 118);
+  /* padding: 20px; */
+  height: auto;
+}
+
+.right-section {
+  position: relative;
+  flex: 1;
+  background-color:#02010a;
+  border-radius: 2px;
+  border-style: solid;
+  border-color: rgb(117, 118, 118);
+  margin-left: 10px;
+  height: auto;
+  
+  /* padding: 20px; */
+}
+p{
+  margin: 5px;
+}
+.container .vertical-line {
+  position: relative; 
+  left: 4px;
+  width: 0.05px;
+  font-size: 1px;
+  height: 170px;
+  background-color: rgb(221, 211, 211);
+}
+  </style>
+  <header>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="left-section">
+        <!-- Content for the left section goes here -->
+        <p>
+          By setting a high z-index value like 999, you are ensuring that the navigation bar is positioned on top of other elements that may have a lower z-index value or no z-index specified.
+
+  It's important to note that the z-index property only works on positioned elements (i.e., elements with a position value of something other than static). In the example I provided, the position: fixed; on the header element enables the use of z-index.
+        </p>
+      </div>
+      <div class="vertical-line"></div>
+      <div class="right-section">
+        <p>
+          By setting a high z-index value like 999, you are ensuring that the navigation bar is positioned on top of other elements that may have a lower z-index value or no z-index specified.
+
+It's important to note that the z-index property only works on positioned elements (i.e., elements with a position value of something other than static). In the example I provided, the position: fixed; on the header element enables the use of z-index.
+        </p>
+        <!-- Content for the right section goes here -->
+      </div>
+    </div>
+  </main>
 </body>
 </html>
