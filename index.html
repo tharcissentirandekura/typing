@@ -21,42 +21,7 @@
                 </div>
             </div>
         </section>
-        <section class="keyboard-section">
-            <div class="keyboard-center">
-                <div class="keyboard-letters">
-                    <div class="letter">a</div>
-                    <div class="letter">b</div>
-                    <div class="letter">c</div>
-                    <div class="letter">d</div>
-                    <div class="letter">e</div>
-                    <div class="letter">f</div>
-                    <div class="letter">g</div>
-                    <div class="letter">h</div>
-                    <div class="letter">i</div>
-                    <div class="letter">j</div>
-                    <div class="letter">k</div>
-                    <div class="letter">l</div>
-                    <div class="letter">m</div>
-                    <div class="letter">n</div>
-                    <div class="letter">o</div>
-                    <div class="letter">p</div>
-                    <div class="letter">q</div>
-                    <div class="letter">l</div>
-                    <div class="letter">m</div>
-                    <div class="letter">n</div>
-    
-                </div>
-            </div>
-        
-        </section>
-
-    </section>
-
-    <footer>I am Tharcisse and I am making this funcking website so that I can take advantage to learning
-        how to tyoe and also improve my web developement skills since I am in computer science class.
-    </footer>
-
-    
+    </section> 
 </body>
 <script>
 
@@ -94,10 +59,10 @@
     if(letterPosition <= len){
         if (currentLetter === lastLetter){
         // change the color
-        letters[letterPosition-1] = '<span style="color: red">' + letters[letterPosition-1] + '</span>';
+        letters[letterPosition-1] = '<span style="color: white">' + letters[letterPosition-1] + '</span>';
         document.querySelector(".words").innerHTML = letters.join("")
     }else{
-        letters[letterPosition-1] = '<span style="background-color: blue">' + letters[letterPosition-1] + '</span>';
+        letters[letterPosition-1] = '<span style="color: red">' + letters[letterPosition-1] + '</span>';
         document.querySelector(".words").innerHTML = letters.join("")
     } 
     document.querySelector(".words").innerHTML = letters.join(""); // set the letter joined

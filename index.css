@@ -3,8 +3,11 @@ body{
     color: white;
     font-size: 30px;
 }
+.typed,.accuracy{
+    display: none;
+}
 #output{
-    display:block;
+    display:none;
     color: blue;
 }
 .typing-section{
